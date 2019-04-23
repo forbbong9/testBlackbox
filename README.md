@@ -21,3 +21,18 @@
 | `blackbox_shred_all_files`  | Safely delete any decrypted files |
 | `blackbox_update_all_files` | Decrypt then re-encrypt all files. Useful after keys are changed  |
 | `blackbox_whatsnew <file>`  | show what has changed in the last commit for a given file |
+
+
+#### How it works:
+1. Generate a new GPG key `gpg --full-generate-key`. 
+Or exporting your GPG key `gpg --armor --export _you@example.com_ > mykey.asc`.
+2. To add someone else's public key, run `gpg --import theirkey.asc`.
+3. `blackbox_initialize` inside the repo.
+4. To encrypt a new file, run `blackbox_register_new_file`.
+5. To add an admin, run `blackbox_addadmin`.
+6. If just add a new admin, run `blackbox_update_all_files`.
+7. To read a file, run `blackbox_cat filename`.
+8. To edit a file, run `blackbox_edit filename`.
+
+
+**Best reference: [blackbox GitHub page](https://github.com/StackExchange/blackbox/blob/master/README.md)**
